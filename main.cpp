@@ -8,7 +8,6 @@ int checkPrime(int i, std::vector<int> v) {
         if(i%v[idx]==0) return false;
         if(v[idx] >= searchscope) break;
     }
-    v.push_back(i);
     return true;
 }
 
@@ -22,11 +21,15 @@ int main() {
     scanf("%d", &input);
 
     while(v.size() < input) {
-        checkPrime(iterator++, v);
+        if(checkPrime(iterator, v)) v.push_back(iterator);
+        iterator += 2;
+        /*
         for (auto i = v.begin(); i != v.end(); ++i)
             std::cout << *i << ' ';
+            printf("\n");
+        */
     }
 
-    printf("%d", v.end());
+    printf("\nRequested value is %d.\n", v.back());
     return 0;
 }
