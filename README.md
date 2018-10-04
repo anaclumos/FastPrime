@@ -1,0 +1,2 @@
+# FastPrime
+Fast Prime Finder
